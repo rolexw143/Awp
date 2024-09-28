@@ -1,0 +1,47 @@
+using System;
+
+class SimpleQuadratic
+{
+    static void Main()
+    {
+        // Prompt user for coefficients
+        Console.WriteLine("Enter coefficients for the quadratic equation (a*x^2 + b*x + c = 0):");
+
+        Console.Write("a: ");
+        double a = double.Parse(Console.ReadLine());
+
+        Console.Write("b: ");
+        double b = double.Parse(Console.ReadLine());
+
+        Console.Write("c: ");
+        double c = double.Parse(Console.ReadLine());
+
+        // Check if a is zero
+        if (a == 0)
+        {
+            Console.WriteLine("This is not a quadratic equation.");
+            return;
+        }
+
+        // Calculate the discriminant
+        double discriminant = b * b - 4 * a * c;
+
+        // Calculate the roots based on the discriminant
+        if (discriminant > 0)
+        {
+            double r1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+            double r2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+            Console.WriteLine($"Roots are real and distinct: r1 = {r1}, r2 = {r2}");
+        }
+        else if (discriminant == 0)
+        {
+            double r = -b / (2 * a);
+            Console.WriteLine($"Roots are real and equal: r1 = r2 = {r}");
+        }
+        else
+        {
+            Console.WriteLine("Roots are imaginary.");
+        }
+        Console.ReadLine();
+    }
+}
