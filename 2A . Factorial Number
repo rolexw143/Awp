@@ -1,0 +1,23 @@
+using System;
+
+namespace factorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number, fact = 1;  // Initialize fact to 1
+            Console.WriteLine("Enter the Number");
+            number = int.Parse(Console.ReadLine());
+
+            for (int i = number; i >= 1; i--)  // Start from number
+            {
+                fact *= i;  // Multiply fact by i
+            }
+
+            Console.WriteLine("\nFactorial of Given Number is: " + fact);
+
+            Console.ReadLine();  // Wait for a key press
+        }
+    }
+}
