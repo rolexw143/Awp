@@ -1,0 +1,129 @@
+//Furniture .cs 
+
+using System;
+
+namespace MultipleInheritance
+{
+    interface IFurniture
+    {
+        void GetData();
+        void ShowData();
+    }
+
+    class Furniture : IFurniture
+    {
+        protected string material;
+        protected float price;
+
+        public void GetData()
+        {
+            Console.Write("Enter material: ");
+            material = Console.ReadLine();
+            Console.Write("Enter price: ");
+            price = float.Parse(Console.ReadLine());
+        }
+
+        public void ShowData()
+        {
+            Console.WriteLine("Material: " + material);
+            Console.WriteLine("Price: " + price);
+        }
+    }
+}
+
+
+//Table.cs code 
+
+using System;
+
+namespace MultipleInheritance
+{
+    interface ITable
+    {
+        void GetTableData();
+        void ShowTableData();
+    }
+
+    class Table : Furniture, ITable
+    {
+        private int height;
+        private int surfaceArea;
+
+        public void GetTableData()
+        {
+            base.GetData();
+            Console.Write("Enter height: ");
+            height = int.Parse(Console.ReadLine());
+            Console.Write("Enter surface area: ");
+            surfaceArea = int.Parse(Console.ReadLine());
+        }
+
+        public void ShowTableData()
+        {
+            base.ShowData();
+            Console.WriteLine("Height: " + height);
+            Console.WriteLine("Surface Area: " + surfaceArea);
+        }
+    }
+}
+
+
+//Chair.cs code 
+
+using System;
+
+namespace MultipleInheritance
+{
+    interface IChair
+    {
+        void GetChairData();
+        void ShowChairData();
+    }
+
+    class Chair : Furniture, IChair
+    {
+        private int numberOfLegs;
+
+        public void GetChairData()
+        {
+            base.GetData();
+            Console.Write("Enter number of legs: ");
+            numberOfLegs = int.Parse(Console.ReadLine());
+        }
+
+        public void ShowChairData()
+        {
+            base.ShowData();
+            Console.WriteLine("Number of Legs: " + numberOfLegs);
+        }
+    }
+}
+
+
+//Program.cs Code 
+
+using System;
+
+namespace MultipleInheritance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Table t1 = new Table();
+            t1.GetTableData();
+            t1.ShowTableData();
+
+            Console.WriteLine("----------------------------------------------");
+
+            Console.WriteLine(); // Line break
+
+            Chair c1 = new Chair();
+            c1.GetChairData();
+            c1.ShowChairData();
+            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine("\n press key to enter ");
+            Console.ReadLine();
+        }
+    }
+}
