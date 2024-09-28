@@ -1,0 +1,35 @@
+using System;
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1 = 0, num2 = 1, num3, num, counter;
+            Console.Write("Upto how many numbers you want the Fibonacci series: ");
+            num = int.Parse(Console.ReadLine());
+
+            if (num == 1)
+            {
+                Console.Write(num1);
+            }
+            else if (num >= 2)
+            {
+                Console.Write(num1 + "\t" + num2);
+            }
+
+            counter = 3;
+            while (counter <= num)
+            {
+                num3 = num1 + num2;
+                Console.Write("\t" + num3);  // Print the next Fibonacci number
+                num1 = num2;
+                num2 = num3;
+                counter++;
+            }
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadLine();
+        }
+    }
+}
