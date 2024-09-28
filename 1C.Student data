@@ -7,7 +7,7 @@ namespace ArrayOfStructs
         {
             public string studid, name, cname;
             public int day, month, year;
-}
+        }
         static void Main(string[] args)
         {
             Student[] s = new Student[2];
@@ -28,13 +28,16 @@ namespace ArrayOfStructs
                 s[i].year = Convert.ToInt32(Console.ReadLine());
             }
             Console.WriteLine("\n\nStudent's List\n");
-            for (i = 0; i < 5; i++)
+            for (i = 0; i < 2; i++)
             {
                 Console.WriteLine("\nStudent ID : " + s[i].studid);
                 Console.WriteLine("\nStudent name : " + s[i].name);
                 Console.WriteLine("\nCourse name : " + s[i].cname);
-                Console.WriteLine("\nDate of birth(dd-mm-yy) : " + s[i].day + "-" +s[i].month + "-" + s[i].year);
+                Console.WriteLine("\nDate of birth(dd-mm-yy) : " + s[i].day + "-" + s[i].month + "-" + s[i].year);
+              
             }
+            Console.WriteLine("\n press any key to get exit");
+            Console.ReadLine();
         }
     }
 }
