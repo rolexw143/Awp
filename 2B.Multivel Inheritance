@@ -1,0 +1,104 @@
+//Furniture.cs code 
+
+using System;
+
+namespace MultilevelInheritance
+{
+    class Furniture
+    {
+        string material;
+        float price;
+
+        public void getdata()
+        {
+            Console.Write("Enter material: ");
+            material = Console.ReadLine();
+            Console.Write("Enter price: ");
+            price = float.Parse(Console.ReadLine());
+        }
+
+        public void showdata()
+        {
+            Console.WriteLine("Material: " + material);
+            Console.WriteLine("Price: " + price);
+        }
+    }
+}
+
+
+//Table.cs code 
+
+using System;
+
+namespace MultilevelInheritance
+{
+    class Table : Furniture
+    {
+        int height, surface_area;
+
+        public new void getdata()
+        {
+            base.getdata(); // Call the parent class's getdata method
+            Console.Write("Enter height: ");
+            height = int.Parse(Console.ReadLine());
+            Console.Write("Enter surface area: ");
+            surface_area = int.Parse(Console.ReadLine());
+        }
+
+        public new void showdata()
+        {
+            base.showdata(); // Call the parent class's showdata method
+            Console.WriteLine("Height: " + height);
+            Console.WriteLine("Surface Area: " + surface_area);
+        }
+    }
+}
+
+
+//DiningTable.cs code 
+
+
+using System;
+
+namespace MultilevelInheritance
+{
+    class DiningTable : Table
+    {
+        int seating_capacity;
+
+        public new void getdata()
+        {
+            base.getdata(); // Call the parent class's getdata method
+            Console.Write("Enter seating capacity: ");
+            seating_capacity = int.Parse(Console.ReadLine());
+        }
+
+        public new void showdata()
+        {
+            base.showdata(); // Call the parent class's showdata method
+            Console.WriteLine("Seating Capacity: " + seating_capacity);
+        }
+    }
+}
+
+
+//Program.cs code 
+
+
+using System;
+
+namespace MultilevelInheritance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DiningTable dt = new DiningTable();
+            Console.WriteLine("Enter Dining Table Details:");
+            dt.getdata();
+            Console.WriteLine("\nDining Table Details:");
+            dt.showdata();
+            Console.ReadLine();
+        }
+    }
+}
